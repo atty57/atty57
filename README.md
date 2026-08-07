@@ -20,4 +20,5 @@ Exploring Large Language Models (LLMs) and their applications.
 
 
 📫 Connect With Me!
-Feel free to connect—I'm always excited to collaborate or discuss interesting projects!
+Feel free to connect - I'm always excited to collaborate or discuss interesting projects!
+Linkedin - https://www.linkedin.com/in/atharva-vichare-68739a213
