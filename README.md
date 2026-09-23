@@ -41,7 +41,6 @@ I work where agents meet the real world: the approval loops, protocol adapters a
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | 🟣 .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | 🟣 .NET | Surface the real workflow exception instead of a JSON serialization error |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | 🟣 .NET | Stop AG-UI SSE events from being written with explicit `null`s |
-| [#7867](https://github.com/microsoft/agent-framework/pull/7867) | 🟣 .NET | Expose pending tool-approval requests from a restored `AgentSession` |
 
 <p align="left">
 <a href="https://github.com/microsoft/agent-framework/pulls?q=is%3Apr+author%3Aatty57+is%3Amerged"><img src="https://img.shields.io/badge/view_merged_PRs-00D4FF?style=for-the-badge&logo=github&logoColor=black" /></a>
