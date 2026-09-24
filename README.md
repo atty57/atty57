@@ -26,21 +26,21 @@ I work where agents meet the real world: the approval loops, protocol adapters a
 
 | PR | Stack | Anomaly detected → resolution |
 |---|---|---|
-| [#7271](https://github.com/microsoft/agent-framework/pull/7271) | 🐍 Python | **Double execution on approval.** After a human approved a tool call, the round-trip ran the function a second time. Fixed so an approved call runs exactly once. |
-| [#7474](https://github.com/microsoft/agent-framework/pull/7474) | 🟣 .NET | **Unbounded auto-approval loop.** Put a hard bound on the tool-approval auto-approval loop so an agent can't spin without limit. |
-| [#7635](https://github.com/microsoft/agent-framework/pull/7635) | 🐍 Python | **Broken memory provider.** The Cosmos DB memory provider was still calling a renamed `add_cosmos` toolkit API; rewired it to the current one. |
-| [#7655](https://github.com/microsoft/agent-framework/pull/7655) | 🐍 Python | **Lost attachments over AG-UI.** File attachments were silently dropped when the URL arrived in `source.value`; they now make it through. |
-| [#7951](https://github.com/microsoft/agent-framework/pull/7951) | 🐍 Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
+| [#7271](https://github.com/microsoft/agent-framework/pull/7271) |  Python | **Double execution on approval.** After a human approved a tool call, the round-trip ran the function a second time. Fixed so an approved call runs exactly once. |
+| [#7474](https://github.com/microsoft/agent-framework/pull/7474) |  .NET | **Unbounded auto-approval loop.** Put a hard bound on the tool-approval auto-approval loop so an agent can't spin without limit. |
+| [#7635](https://github.com/microsoft/agent-framework/pull/7635) |  Python | **Broken memory provider.** The Cosmos DB memory provider was still calling a renamed `add_cosmos` toolkit API; rewired it to the current one. |
+| [#7655](https://github.com/microsoft/agent-framework/pull/7655) |  Python | **Lost attachments over AG-UI.** File attachments were silently dropped when the URL arrived in `source.value`; they now make it through. |
+| [#7951](https://github.com/microsoft/agent-framework/pull/7951) |  Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
 
 ### 🔄 In orbit (open for review)
 
 | PR | Stack | Mission |
 |---|---|---|
-| [#8665](https://github.com/microsoft/agent-framework/pull/8665) | 🐍 Python | Correct tool-argument validation for `datetime`, `set` and `tuple` parameters |
-| [#8465](https://github.com/microsoft/agent-framework/pull/8465) | 🟣 .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
-| [#8265](https://github.com/microsoft/agent-framework/pull/8265) | 🟣 .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
-| [#8018](https://github.com/microsoft/agent-framework/pull/8018) | 🟣 .NET | Surface the real workflow exception instead of a JSON serialization error |
-| [#7920](https://github.com/microsoft/agent-framework/pull/7920) | 🟣 .NET | Stop AG-UI SSE events from being written with explicit `null`s |
+| [#8665](https://github.com/microsoft/agent-framework/pull/8665) |  Python | Correct tool-argument validation for `datetime`, `set` and `tuple` parameters |
+| [#8465](https://github.com/microsoft/agent-framework/pull/8465) |  .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
+| [#8265](https://github.com/microsoft/agent-framework/pull/8265) |  .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
+| [#8018](https://github.com/microsoft/agent-framework/pull/8018) |  .NET | Surface the real workflow exception instead of a JSON serialization error |
+| [#7920](https://github.com/microsoft/agent-framework/pull/7920) |  .NET | Stop AG-UI SSE events from being written with explicit `null`s |
 
 <p align="left">
 <a href="https://github.com/microsoft/agent-framework/pulls?q=is%3Apr+author%3Aatty57+is%3Amerged"><img src="https://img.shields.io/badge/view_merged_PRs-00D4FF?style=for-the-badge&logo=github&logoColor=black" /></a>
