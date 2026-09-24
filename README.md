@@ -33,7 +33,6 @@ Your weekly Claude usage resets on a fixed day, and whatever you haven't used is
 /moonlight:setup
 ```
 
-<a href="https://github.com/atty57/moonlight"><img src="https://img.shields.io/github/stars/atty57/moonlight?style=flat-square&label=⭐%20star%20moonlight&color=7C5CFF&labelColor=0A0B10" /></a>
 
 <br />
 
