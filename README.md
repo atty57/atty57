@@ -4,7 +4,6 @@
 
 <p align="center">
   <a href="https://github.com/atty57/moonlight"><img src="https://img.shields.io/badge/☾_moonlight-v0.1-7C5CFF?style=flat-square&labelColor=0A0B10" /></a>
-  <a href="https://github.com/microsoft/agent-framework/pulls?q=is%3Apr+author%3Aatty57+is%3Amerged"><img src="https://img.shields.io/badge/agent--framework-5_merged-2EA043?style=flat-square&labelColor=0A0B10&logo=github" /></a>
   <a href="https://www.linkedin.com/in/atharva-vichare-68739a213"><img src="https://img.shields.io/badge/LinkedIn-connect-0A66C2?style=flat-square&labelColor=0A0B10&logo=linkedin" /></a>
   <a href="https://portfolio-atty57s-projects.vercel.app"><img src="https://img.shields.io/badge/portfolio-visit-22D3EE?style=flat-square&labelColor=0A0B10&logo=vercel" /></a>
 </p>
