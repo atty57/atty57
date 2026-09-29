@@ -56,7 +56,6 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 
 | PR | Stack | Change |
 |---|---|---|
-| [#8665](https://github.com/microsoft/agent-framework/pull/8665) | Python | Correct tool-argument validation for `datetime`, `set` and `tuple` parameters |
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
