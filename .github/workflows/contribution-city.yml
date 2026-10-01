@@ -45,12 +45,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git diff --quiet -- assets/contribution-city.svg; then
+          git add assets/contribution-city.svg
+
+          # Compare the index against HEAD, not the working tree. A plain
+          # `git diff -- <path>` ignores untracked files, so on the very first
+          # run it reports "no change" and the new SVG is silently thrown away.
+          if git diff --cached --quiet -- assets/contribution-city.svg; then
             echo "skyline unchanged, nothing to commit"
             exit 0
           fi
 
-          git add assets/contribution-city.svg
           git commit -m "chore: redraw contribution city"
           git push || {
             # someone pushed while we were drawing
