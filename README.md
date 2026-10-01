@@ -56,12 +56,24 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 
 | PR | Stack | Change |
 |---|---|---|
+| [#8665](https://github.com/microsoft/agent-framework/pull/8665) | Python | Stop tool argument validation from rejecting `datetime`, `set` and `tuple` parameters |
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | Stop AG-UI SSE events from being written with explicit `null`s |
 
 <a href="https://github.com/microsoft/agent-framework/pulls?q=is%3Apr+author%3Aatty57"><img src="https://img.shields.io/badge/all_my_PRs_→-7C5CFF?style=flat-square&logo=github&labelColor=0A0B10" /></a>
+
+<br />
+
+## 🌐 Open Source · beyond agents
+
+Fixes in Google's fuzzing platform and the diagrams-as-code library GitHub uses to render Mermaid.
+
+| Project | PR | Status | What broke → what I fixed |
+|---|---|---|---|
+| `google/clusterfuzz` | [#5503](https://github.com/google/clusterfuzz/pull/5503) | ✅ Merged | **Invisible admin action.** Non-admins couldn't see the "remove duplicate" button on a testcase at all. It now shows as disabled with a tooltip explaining it's admin-only, and the server still enforces the check. |
+| `mermaid-js/mermaid` | [#8350](https://github.com/mermaid-js/mermaid/pull/8350) | 🔄 In review | **Parentheses broke flowchart labels.** `A[Label (note)]` failed to parse unless quoted. Added a dedicated lexer state so square-bracket labels accept them. |
 
 <br />
 
