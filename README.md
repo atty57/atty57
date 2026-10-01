@@ -108,4 +108,12 @@ Linkedin - https://www.linkedin.com/in/atharva-vichare-68739a213
 
 <br />
 
+## 🌃 Contribution city
+
+<img src="assets/contribution-city.svg" width="100%" alt="An isometric night skyline built from my GitHub contributions: one building per day of the last year, taller and brighter for busier days." />
+
+<p><sub>One building per day of the last year — height and colour track that day's contributions, empty plots are days off. Redrawn nightly by a <a href="/.github/workflows/contribution-city.yml">GitHub Action</a>.</sub></p>
+
+<br />
+
 <p align="center"><sub>☾ built by day · shipped by night</sub></p>

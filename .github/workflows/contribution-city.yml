@@ -1,0 +1,59 @@
+name: contribution city
+
+on:
+  schedule:
+    # 03:17 UTC daily — an odd minute, since the top of the hour is congested
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/scripts/contribution_city.py"
+      - ".github/workflows/contribution-city.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-city
+  cancel-in-progress: false
+
+jobs:
+  redraw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Redraw the city
+        env:
+          # CITY_TOKEN is an optional PAT with the read:user scope; it also
+          # counts private contributions. Without it the default token draws
+          # public contributions only.
+          GH_TOKEN: ${{ secrets.CITY_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          python .github/scripts/contribution_city.py \
+            --login "${{ github.repository_owner }}" \
+            --out assets/contribution-city.svg
+
+      - name: Commit if the skyline changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git diff --quiet -- assets/contribution-city.svg; then
+            echo "skyline unchanged, nothing to commit"
+            exit 0
+          fi
+
+          git add assets/contribution-city.svg
+          git commit -m "chore: redraw contribution city"
+          git push || {
+            # someone pushed while we were drawing
+            git pull --rebase origin main
+            git push
+          }
