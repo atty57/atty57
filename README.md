@@ -51,14 +51,14 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 | [#7635](https://github.com/microsoft/agent-framework/pull/7635) | Python | **Broken memory provider.** The Cosmos DB memory provider was still calling a renamed `add_cosmos` toolkit API; rewired it to the current one. |
 | [#7655](https://github.com/microsoft/agent-framework/pull/7655) | Python | **Lost attachments over AG-UI.** File attachments were silently dropped when the URL arrived in `source.value`; they now make it through. |
 | [#7951](https://github.com/microsoft/agent-framework/pull/7951) | Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
+| [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Background responses broke under telemetry.** Wrapping an agent with `UseOpenTelemetry` handed back the provider's raw continuation token, so saving and resuming a background run threw. The agent's own token (and `AgentId`) now survive the wrapper. |
 
 #### 🔄 In review
 
 | PR | Stack | Change |
 |---|---|---|
-| [#8665](https://github.com/microsoft/agent-framework/pull/8665) | Python | Stop tool argument validation from rejecting `datetime`, `set` and `tuple` parameters |
+| [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | Bound declarative custom-function matching to the whole call, so a trailing expression isn't swallowed into the arguments |
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
-| [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | Preserve the agent continuation token when wrapped with `UseOpenTelemetry` |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | Stop AG-UI SSE events from being written with explicit `null`s |
 
