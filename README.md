@@ -51,13 +51,13 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 | [#7635](https://github.com/microsoft/agent-framework/pull/7635) | Python | **Broken memory provider.** The Cosmos DB memory provider was still calling a renamed `add_cosmos` toolkit API; rewired it to the current one. |
 | [#7655](https://github.com/microsoft/agent-framework/pull/7655) | Python | **Lost attachments over AG-UI.** File attachments were silently dropped when the URL arrived in `source.value`; they now make it through. |
 | [#7951](https://github.com/microsoft/agent-framework/pull/7951) | Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
-| [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Background responses broke under telemetry.** Wrapping an agent with `UseOpenTelemetry` handed back the provider's raw continuation token, so saving and resuming a background run threw. The agent's own token (and `AgentId`) now survive the wrapper. |
+| [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Lost continuation token under telemetry.** Background-response continuation tokens were dropped when an agent was wrapped with `UseOpenTelemetry`, so a resume threw; the token now survives the telemetry pipeline. |
 
 #### 🔄 In review
 
 | PR | Stack | Change |
 |---|---|---|
-| [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | Bound declarative custom-function matching to the whole call, so a trailing expression isn't swallowed into the arguments |
+| [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | Stop declarative `Concat` / `MessageText` from swallowing everything past their own closing paren |
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | Stop AG-UI SSE events from being written with explicit `null`s |
@@ -66,14 +66,15 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 
 <br />
 
-## 🌐 Open Source · beyond agents
+## 🌐 Open Source · elsewhere
 
-Fixes in Google's fuzzing platform and the diagrams-as-code library GitHub uses to render Mermaid.
+The same bug-hunting, pointed at other projects I use local inference and voice tooling.
 
-| Project | PR | Status | What broke → what I fixed |
+| Project | PR | Status | Change |
 |---|---|---|---|
-| `google/clusterfuzz` | [#5503](https://github.com/google/clusterfuzz/pull/5503) | ✅ Merged | **Invisible admin action.** Non-admins couldn't see the "remove duplicate" button on a testcase at all. It now shows as disabled with a tooltip explaining it's admin-only, and the server still enforces the check. |
-| `mermaid-js/mermaid` | [#8350](https://github.com/mermaid-js/mermaid/pull/8350) | 🔄 In review | **Parentheses broke flowchart labels.** `A[Label (note)]` failed to parse unless quoted. Added a dedicated lexer state so square-bracket labels accept them. |
+| [OpenWhispr](https://github.com/OpenWhispr/openwhispr) | [#2651](https://github.com/OpenWhispr/openwhispr/pull/2651) | ✅ Merged | Idle-timeout for streaming replies, so local and self-hosted models get time to respond instead of being cut off |
+| [vLLM](https://github.com/vllm-project/vllm) | [#60512](https://github.com/vllm-project/vllm/pull/60512) | 🔄 In review | Keep still-prefilling rows out of full CUDA-graph decode, fixing nondeterministic one-token prompts on Mamba-hybrid models |
+| [SGLang](https://github.com/sgl-project/sglang) | [#42424](https://github.com/sgl-project/sglang/pull/42424) | 🔄 In review | Reject `--speculative-token-map` when the target `lm_head` is vocab-sharded, instead of a device-side assert at init |
 
 <br />
 
@@ -105,14 +106,6 @@ Fixes in Google's fuzzing platform and the diagrams-as-code library GitHub uses 
 Feel free to connect - I'm always excited to collaborate or discuss interesting projects!
 
 Linkedin - https://www.linkedin.com/in/atharva-vichare-68739a213
-
-<br />
-
-## 🌃 Contribution city
-
-<img src="assets/contribution-city.svg" width="100%" alt="An isometric night skyline built from my GitHub contributions: one building per day of the last year, taller and brighter for busier days." />
-
-<p><sub>One building per day of the last year — height and colour track that day's contributions, empty plots are days off. Redrawn nightly by a <a href="/.github/workflows/contribution-city.yml">GitHub Action</a>.</sub></p>
 
 <br />
 
