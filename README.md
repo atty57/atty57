@@ -68,11 +68,13 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 
 ## 🌐 Open Source · elsewhere
 
-The same bug-hunting, pointed at other projects I use local inference and voice tooling.
+The same bug-hunting, pointed at other projects I use — Google's fuzzing platform, the Mermaid diagrams-as-code library, and local inference and voice tooling.
 
 | Project | PR | Status | Change |
 |---|---|---|---|
+| [google/clusterfuzz](https://github.com/google/clusterfuzz) | [#5503](https://github.com/google/clusterfuzz/pull/5503) | ✅ Merged | **Invisible admin action.** Non-admins couldn't see the "remove duplicate" button on a testcase at all. It now shows as disabled with a tooltip explaining it's admin-only, and the server still enforces the check. |
 | [OpenWhispr](https://github.com/OpenWhispr/openwhispr) | [#2651](https://github.com/OpenWhispr/openwhispr/pull/2651) | ✅ Merged | Idle-timeout for streaming replies, so local and self-hosted models get time to respond instead of being cut off |
+| [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid) | [#8350](https://github.com/mermaid-js/mermaid/pull/8350) | 🔄 In review | **Parentheses broke flowchart labels.** `A[Label (note)]` failed to parse unless quoted. Added a dedicated lexer state so square-bracket labels accept them. |
 | [vLLM](https://github.com/vllm-project/vllm) | [#60512](https://github.com/vllm-project/vllm/pull/60512) | 🔄 In review | Keep still-prefilling rows out of full CUDA-graph decode, fixing nondeterministic one-token prompts on Mamba-hybrid models |
 | [SGLang](https://github.com/sgl-project/sglang) | [#42424](https://github.com/sgl-project/sglang/pull/42424) | 🔄 In review | Reject `--speculative-token-map` when the target `lm_head` is vocab-sharded, instead of a device-side assert at init |
 
@@ -110,3 +112,4 @@ Linkedin - https://www.linkedin.com/in/atharva-vichare-68739a213
 <br />
 
 <p align="center"><sub>☾ built by day · shipped by night</sub></p>
+ 
