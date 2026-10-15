@@ -52,12 +52,12 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 | [#7655](https://github.com/microsoft/agent-framework/pull/7655) | Python | **Lost attachments over AG-UI.** File attachments were silently dropped when the URL arrived in `source.value`; they now make it through. |
 | [#7951](https://github.com/microsoft/agent-framework/pull/7951) | Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Lost continuation token under telemetry.** Background-response continuation tokens were dropped when an agent was wrapped with `UseOpenTelemetry`, so a resume threw; the token now survives the telemetry pipeline. |
+| [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | **Swallowed formula tail.** The declarative evaluator matched `Concat` / `Concatenate` / `MessageText` against the *whole* formula, so anything after the call's own closing paren — e.g. `Concat("a") & Lower("B")` — got pulled into its arguments and silently mis-evaluated (or threw a spurious PowerFx error). It now scans for the parenthesis that actually closes the call, so only the call itself is matched. |
 
 #### 🔄 In review
 
 | PR | Stack | Change |
 |---|---|---|
-| [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | Stop declarative `Concat` / `MessageText` from swallowing everything past their own closing paren |
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | Stop AG-UI SSE events from being written with explicit `null`s |
