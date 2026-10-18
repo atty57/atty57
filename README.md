@@ -53,6 +53,7 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 | [#7951](https://github.com/microsoft/agent-framework/pull/7951) | Python | **Crash on shutdown.** `A2AAgent` threw an `AttributeError` on exit when the caller supplied their own `http_client`; fixed the teardown path. |
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Lost continuation token under telemetry.** Background-response continuation tokens were dropped when an agent was wrapped with `UseOpenTelemetry`, so a resume threw; the token now survives the telemetry pipeline. |
 | [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | **Swallowed formula tail.** The declarative evaluator matched `Concat` / `Concatenate` / `MessageText` against the *whole* formula, so anything after the call's own closing paren — e.g. `Concat("a") & Lower("B")` — got pulled into its arguments and silently mis-evaluated (or threw a spurious PowerFx error). It now scans for the parenthesis that actually closes the call, so only the call itself is matched. |
+| [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | **Explicit `null`s in AG-UI events.** SSE events were serialized with every unset field written as `null`, bloating the stream and tripping strict AG-UI clients. Null properties are now omitted, so events go out in the shape the protocol expects. |
 
 #### 🔄 In review
 
@@ -60,7 +61,6 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 |---|---|---|
 | [#8465](https://github.com/microsoft/agent-framework/pull/8465) | .NET | Fix AG-UI `Unknown chat role: reasoning` error on follow-up turns |
 | [#8018](https://github.com/microsoft/agent-framework/pull/8018) | .NET | Surface the real workflow exception instead of a JSON serialization error |
-| [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | Stop AG-UI SSE events from being written with explicit `null`s |
 
 <a href="https://github.com/microsoft/agent-framework/pulls?q=is%3Apr+author%3Aatty57"><img src="https://img.shields.io/badge/all_my_PRs_→-7C5CFF?style=flat-square&logo=github&labelColor=0A0B10" /></a>
 
