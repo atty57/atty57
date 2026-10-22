@@ -72,6 +72,7 @@ The same bug-hunting, pointed at other projects I use — Google's fuzzing platf
 
 | Project | PR | Status | Change |
 |---|---|---|---|
+| [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp) | [#5758](https://github.com/PrefectHQ/fastmcp/pull/5758) | ✅ Merged | **Ignored per-server timeouts.** A `timeout` set on an individual server in the MCP config was ignored; connections now honor each server's configured timeout instead of only the global default. |
 | [google/clusterfuzz](https://github.com/google/clusterfuzz) | [#5503](https://github.com/google/clusterfuzz/pull/5503) | ✅ Merged | **Invisible admin action.** Non-admins couldn't see the "remove duplicate" button on a testcase at all. It now shows as disabled with a tooltip explaining it's admin-only, and the server still enforces the check. |
 | [OpenWhispr](https://github.com/OpenWhispr/openwhispr) | [#2651](https://github.com/OpenWhispr/openwhispr/pull/2651) | ✅ Merged | Idle-timeout for streaming replies, so local and self-hosted models get time to respond instead of being cut off |
 | [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid) | [#8350](https://github.com/mermaid-js/mermaid/pull/8350) | 🔄 In review | **Parentheses broke flowchart labels.** `A[Label (note)]` failed to parse unless quoted. Added a dedicated lexer state so square-bracket labels accept them. |
