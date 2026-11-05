@@ -54,6 +54,7 @@ Microsoft's SDK for building AI agents and multi-agent workflows in **Python** a
 | [#8265](https://github.com/microsoft/agent-framework/pull/8265) | .NET | **Lost continuation token under telemetry.** Background-response continuation tokens were dropped when an agent was wrapped with `UseOpenTelemetry`, so a resume threw; the token now survives the telemetry pipeline. |
 | [#9176](https://github.com/microsoft/agent-framework/pull/9176) | Python | **Swallowed formula tail.** The declarative evaluator matched `Concat` / `Concatenate` / `MessageText` against the *whole* formula, so anything after the call's own closing paren — e.g. `Concat("a") & Lower("B")` — got pulled into its arguments and silently mis-evaluated (or threw a spurious PowerFx error). It now scans for the parenthesis that actually closes the call, so only the call itself is matched. |
 | [#7920](https://github.com/microsoft/agent-framework/pull/7920) | .NET | **Explicit `null`s in AG-UI events.** SSE events were serialized with every unset field written as `null`, bloating the stream and tripping strict AG-UI clients. Null properties are now omitted, so events go out in the shape the protocol expects. |
+| [#10106](https://github.com/microsoft/agent-framework/pull/10106) | Python | **Dropped `redacted_thinking` in tool loops.** Anthropic `redacted_thinking` blocks were dropped while parsing a Claude response, so the follow-up request carrying the `tool_result` went out missing reasoning Anthropic requires returned unmodified. They now round-trip in order — streaming, non-streaming and `pause_turn` continuations included. |
 
 #### 🔄 In review
 
@@ -78,6 +79,7 @@ The same bug-hunting, pointed at other projects I use — Google's fuzzing platf
 | [mermaid-js/mermaid](https://github.com/mermaid-js/mermaid) | [#8350](https://github.com/mermaid-js/mermaid/pull/8350) | 🔄 In review | **Parentheses broke flowchart labels.** `A[Label (note)]` failed to parse unless quoted. Added a dedicated lexer state so square-bracket labels accept them. |
 | [vLLM](https://github.com/vllm-project/vllm) | [#60512](https://github.com/vllm-project/vllm/pull/60512) | 🔄 In review | Keep still-prefilling rows out of full CUDA-graph decode, fixing nondeterministic one-token prompts on Mamba-hybrid models |
 | [SGLang](https://github.com/sgl-project/sglang) | [#42424](https://github.com/sgl-project/sglang/pull/42424) | 🔄 In review | Reject `--speculative-token-map` when the target `lm_head` is vocab-sharded, instead of a device-side assert at init |
+| [vstorm-co/pydantic-deepagents](https://github.com/vstorm-co/pydantic-deepagents) | [#251](https://github.com/vstorm-co/pydantic-deepagents/pull/251) | 🔄 In review | **Ignored configured model in ACP sessions.** New ACP sessions always started on the first hard-coded Anthropic picker option, overriding `--model`, `PYDANTIC_DEEP_MODEL` and provider auto-detection; the resolved default now comes first, custom model IDs included. |
 
 <br />
 
